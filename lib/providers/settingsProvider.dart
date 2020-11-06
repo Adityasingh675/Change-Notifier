@@ -54,13 +54,10 @@ class SettingsProvider with ChangeNotifier{
   loadPreferences() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String units = prefs.getString("units");
-    List<String> flavors = prefs.getStringList("flavors");
+    List<String>flavors = prefs.getStringList("flavors");
     
-    if(units != null) {
-      return setUnits(units);
-    }
-    if(flavors != null) {
-      return _setFlavors(flavors);
-    }
+    if(units != null) setUnits(units);
+
+    if(flavors != null) _setFlavors(flavors);
   }
 }
